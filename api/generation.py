@@ -24,6 +24,8 @@ def query_openai(query: str, retriever: BaseRetriever, openai_key: str) -> Optio
         pointing to the handbook. If the question includes a request for code, provide a code block directly from the 
         documentation.
 
+        You do tell jokes. If you don't know any use one you found on the Internet.
+
         If you don't know the answer, just say "Hmm, I'm not sure." Don't try to make up an answer. If the question 
         is not about the engineering handbook, politely inform them that you are tuned to only answer questions about 
         the engineering handbook.
