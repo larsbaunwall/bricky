@@ -24,8 +24,8 @@ def init():
     index_name = os.getenv("INDEX_NAME")
     doc_dir = os.getenv("DOC_DIR")
 
-    logging.basicConfig(format="%(levelname)s - %(name)s -  %(message)s", level=logging.WARNING)
-    logging.getLogger("haystack").setLevel(logging.INFO)
+    logging.basicConfig(format="%(levelname)s - %(name)s -  %(message)s", level=logging.DEBUG)
+    logging.getLogger("haystack").setLevel(logging.DEBUG)
 
     document_store = ensure_store(index_name)
 
@@ -66,7 +66,7 @@ async def ask(item: QueryModel) -> ResponseModel:
 
 @app.post('/hello/')
 async def ask(item: QueryModel) -> ResponseModel:
-    return ResponseModel(answer="Hello there!")
+    return ResponseModel(success="Hello there!")
 
 
 if __name__ == "__main__":
