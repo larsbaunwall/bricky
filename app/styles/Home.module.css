@@ -20,6 +20,16 @@
   justify-content: space-between;
   padding: 1rem 0.75rem 1rem 0.75rem;
   align-items: center;
+  vertical-align: middle;
+}
+
+.topnav .boticon {
+  border-radius: 20px;;
+  border: 2px solid #002466;
+}
+
+.navlogo * {
+  vertical-align: middle;
 }
 
 .navlogo, .navlinks a {
