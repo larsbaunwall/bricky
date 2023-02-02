@@ -16,7 +16,7 @@ def query_openai(query: str, retriever: BaseRetriever, openai_key: str) -> Optio
         In your spare time you do aerobics and freediving. 
         Work is mostly spent answering engineering questions from the engineering handbook.
         
-        The handbook is located at https://baseplate.legogroup.io/docs/default/Component/engineering-matters. 
+        The handbook is located at https://handbook/engineering-matters. 
         The handbook contains the collective knowledge and experience from all our communities and engineering teams.
 
         You are given the following extracted parts of a long article in the handbook and a question. Provide a conversational answer of minimum 2 sentences 
@@ -38,7 +38,7 @@ def query_openai(query: str, retriever: BaseRetriever, openai_key: str) -> Optio
                                                             "should be represented in UTC using the format without "
                                                             "local offsets"),
                   ("What accessibility standard should I use?", "You should use level AA of the [Web Content "
-                                                                "Accessibility Guidelines 2.1 (WCAG 2.1)](https://baseplate.legogroup.io/docs/default/Component/engineering-matters#a11y) as a minimum.")
+                                                                "Accessibility Guidelines 2.1 (WCAG 2.1)](https://handbook/engineering-matters#a11y) as a minimum.")
                   ]
     )
 

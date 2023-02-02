@@ -24,7 +24,8 @@ def init():
     index_name = os.getenv("INDEX_NAME")
     doc_dir = os.getenv("DOC_DIR")
 
-    logging.basicConfig(format="%(levelname)s - %(name)s -  %(message)s", level=logging.DEBUG)
+    logging.basicConfig(
+        format="%(levelname)s - %(name)s -  %(message)s", level=logging.DEBUG)
     logging.getLogger("haystack").setLevel(logging.DEBUG)
 
     document_store = ensure_store(index_name)
