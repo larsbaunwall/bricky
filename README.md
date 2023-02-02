@@ -1,6 +1,6 @@
 ## Meet Bricky - a conversational bot (Haystack chatbot using OpenAI)
 
-![screenshot.png](./res/screenshot.png)
+![screenshot.png](./res/bricky-recording.gif)
 
 
 ## Getting started 🚀
