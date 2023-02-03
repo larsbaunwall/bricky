@@ -228,7 +228,7 @@ export default function Home() {
             <p>
               Built by{" "}
               <a href="https://github.com/larsbaunwall" target="_blank">
-                @baunwall
+                @larsbaunwall
               </a>{" "}
               with inspiration from{" "}
               <a
