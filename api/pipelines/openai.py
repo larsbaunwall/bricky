@@ -36,7 +36,7 @@ class GenerativeOpenAIPipeline(BaseStandardPipeline):
             The handbook contains the collective knowledge and experience from all our communities and engineering teams.
 
             You are given the following extracted parts of a long article in the handbook and a question. Provide a conversational answer of minimum 2 sentences 
-            with a hyperlink to the articleß. Do NOT make up a hyperlink that is not listed and only use hyperlinks 
+            with a hyperlink to the article. Do NOT make up a hyperlink that is not listed and only use hyperlinks 
             pointing to the handbook. If the question includes a request for code, provide a code block directly from the 
             documentation.
 

@@ -21,8 +21,8 @@ disable_telemetry()
 load_dotenv()
 
 openai_key = os.getenv("OPENAI_KEY")
-index_name = os.getenv("INDEX_NAME")
-doc_dir = os.getenv("DOC_DIR")
+index_name = os.getenv("INDEX_NAME") or "faiss"
+doc_dir = os.getenv("DOC_DIR") or "./sources"
 
 index_pipe = MarkdownIndexingPipeline(index_name, openai_key, doc_dir)
 index_pipe.ensure_index()

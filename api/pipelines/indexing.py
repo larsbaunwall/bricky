@@ -21,6 +21,9 @@ class MarkdownIndexingPipeline(BaseStandardPipeline):
         self.index_exists = os.path.exists(self.index_path)
         self.doc_dir = doc_dir
 
+        if not os.path.exists("indices"):
+            os.makedirs("indices")
+
     def ensure_index(self):
 
         if not self.index_exists:
