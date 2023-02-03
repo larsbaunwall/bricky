@@ -1,4 +1,12 @@
-## Meet Bricky - a conversational bot (Haystack chatbot using OpenAI)
+## Meet Bricky - a conversational bot using OpenAI 🤖
+
+Remember clippy? Meet bricky!
+
+Bricky is a conversational bot using [Retrieval-Augmented Generation](https://arxiv.org/abs/2005.11401) with some help from OpenAI's GPT-3 LLM.
+
+Bricky indexes content stored in markdown files and vectorizes it using OpenAI embeddings. It then uses few-shot learning using a ChatGPT prompt to generate an answer based on relevant content. 
+
+The project is inspired by the awesome [HoustonAI by Astro](https://github.com/withastro/houston.astro.build)
 
 ![screenshot.png](./res/bricky-recording.gif)
 
@@ -11,8 +19,8 @@ Provide these `env` variables for the api container:
 
 ```
 OPENAI_KEY=<YOUR OPENAI KEY GOES HERE>
-DOC_DIR=<YOUR GLOB PATTERN FOR RECURSIVE DOC SEARCH HERE>
-INDEX_NAME=faiss_index
+DOC_DIR=<YOUR ROOT DOC DIRECTORY GOES HERE>
+INDEX_NAME=<NAME OF YOUR INDEX FOR THE DOC STORE>
 ```
 
 Easiest way is to create a `dotenv` file in `/api/.env`
@@ -20,7 +28,8 @@ Easiest way is to create a `dotenv` file in `/api/.env`
 ### Steps
 
 1. Clone this repo!
-2. Run docker-compose: `docker-compose up`
+2. Make sure the document directory is configured correctly
+3. Run docker-compose: `docker-compose up`
 
 You should now have two endpoints running:
 
@@ -45,4 +54,5 @@ To learn more about Next.js, take a look at the following resources:
 - Backend implementation can be found [here](./api).
 
 Questions or comments? Reach out to [@larsbaunwall](https://github.com/larsbaunwall)
+
 Don't forget to :star: this repo!

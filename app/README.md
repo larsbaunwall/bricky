@@ -27,7 +27,6 @@ To learn more about Next.js, take a look at the following resources:
 
 - [Haystack](https://github.com/deepset/haystack) backend implementation can be found [here](../api).
 
-- Read more on the [LangChain blog](https://blog.langchain.dev/langchain-chat/). 
-
 Questions or comments? Reach out to [@larsbaunwall](https://github.com/larsbaunwall)
+
 Don't forget to :star: this repo!

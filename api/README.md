@@ -22,4 +22,5 @@ To learn more about Haystack and OpenAI, take a look at the following resources:
 - Frontend implementation can be found [here](../app).
 
 Questions or comments? Reach out to [@larsbaunwall](https://github.com/larsbaunwall)
+
 Don't forget to :star: this repo!
