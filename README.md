@@ -6,6 +6,8 @@ Bricky is a conversational bot using [Retrieval-Augmented Generation](https://ar
 
 Bricky indexes content stored in markdown files and vectorizes it using OpenAI embeddings. It then uses few-shot learning using a ChatGPT prompt to generate an answer based on relevant content. 
 
+Read more about my journey into this field and the background for creating Bricky in [my blog article](https://medium.com/@larslb/standing-on-the-shoulders-of-a-giant-embedding-intelligent-behavior-using-large-language-models-8c0f644b6d87)
+
 The project is inspired by the awesome [HoustonAI by Astro](https://github.com/withastro/houston.astro.build)
 
 ![screenshot.png](./res/bricky-recording.gif)
