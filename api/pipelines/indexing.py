@@ -1,9 +1,11 @@
 import glob
 import os
 
+from pipelines.nodes.markdown import MarkdownConverter
+
 from document_stores.faiss import load_store
-from haystack.document_stores import FAISSDocumentStore, BaseDocumentStore
-from haystack.nodes import EmbeddingRetriever, MarkdownConverter, PreProcessor, BaseRetriever
+from haystack.document_stores import BaseDocumentStore
+from haystack.nodes import EmbeddingRetriever, PreProcessor, BaseRetriever
 from haystack.pipelines import Pipeline, BaseStandardPipeline
 
 
@@ -28,7 +30,9 @@ class MarkdownIndexingPipeline(BaseStandardPipeline):
 
         if not self.index_exists:
             self.pipeline = Pipeline()
-            markdown_converter = MarkdownConverter()
+            markdown_converter = MarkdownConverter(
+                extract_headlines=True
+            )
             preprocessor = PreProcessor(
                 clean_empty_lines=True,
                 clean_whitespace=True,

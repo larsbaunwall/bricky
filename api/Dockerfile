@@ -9,10 +9,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends gcc
 # Install python dependencies in /.venv
 COPY Pipfile .
 COPY Pipfile.lock .
+#RUN pipenv requirements > requirements.txt
+#RUN pip install -r requirements.txt
 RUN pipenv run pip install --upgrade setuptools
 RUN pipenv install --system --deploy
 
-FROM base AS runtime
+FROM python-deps AS runtime
 
 # Copy virtual env from python-deps stage
 #COPY --from=python-deps /.venv /.venv

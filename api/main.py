@@ -5,8 +5,8 @@ import uvicorn
 from dotenv import load_dotenv
 from fastapi import FastAPI, APIRouter
 from haystack.telemetry import disable_telemetry
-from pydantic import BaseModel
 
+from models.api import QueryModel, ResponseModel, Document
 from pipelines.openai import GenerativeOpenAIPipeline
 from pipelines.indexing import MarkdownIndexingPipeline
 
@@ -31,33 +31,26 @@ answer_pipe = GenerativeOpenAIPipeline(openai_key, index_name)
 
 
 class AskApi:
-    class QueryModel(BaseModel):
-        question: str
-        history: list = None
-
-    class ResponseModel(BaseModel):
-        success: str = None
-        error: str = None
 
     pipeline: GenerativeOpenAIPipeline
 
     def __init__(self, pipeline: GenerativeOpenAIPipeline):
-        self.pipeline = answer_pipe
+        self.pipeline = pipeline
         self.router = APIRouter()
         self.router.add_api_route("/ask", self.ask, methods=["POST"])
         self.router.add_api_route("/hello", self.hello, methods=["GET"])
 
     async def ask(self, item: QueryModel) -> ResponseModel:
-        res = self.pipeline.run(query=item.question, params={"Generator": {"top_k": 1}, "Retriever": {"top_k": 5}})
+        res = self.pipeline.run(query=item.question, params={"Generator": {"top_k": 1}, "Retriever": {"top_k": item.top_k}})
         try:
             answer = res["answers"][0].answer
-            print(answer)
-            return self.ResponseModel(success=answer)
+            documents = [Document(content=doc.content, meta=doc.meta) for doc in res["documents"]]
+            return ResponseModel(success=answer, documents=documents)
         except Exception as e:
-            return self.ResponseModel(error=e.message)
+            return ResponseModel(error=e.message)
 
     async def hello(self) -> ResponseModel:
-        return self.ResponseModel(success="Hello there!")
+        return ResponseModel(success="Hello there!")
 
 
 app = FastAPI(title="Bricky's chatbot API")

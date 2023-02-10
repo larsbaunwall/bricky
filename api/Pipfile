@@ -8,7 +8,10 @@ python-dotenv = "*"
 fastapi = "*"
 pydantic = "*"
 uvicorn = "*"
+markdown = "*"
+python-frontmatter = "*"
 farm-haystack = {extras = ["docstores,crawler,preprocessing"], version = "*"}
+beautifulsoup4 = "*"
 
 [dev-packages]
 autopep8 = "*"
