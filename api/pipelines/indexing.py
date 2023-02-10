@@ -54,7 +54,7 @@ class MarkdownIndexingPipeline(BaseStandardPipeline):
                 if file.endswith('.md'):
                     files_to_index.append(file)
 
-            if len(files_to_index) is not 0:
+            if len(files_to_index) != 0:
                 self.pipeline.run(file_paths=files_to_index)
                 document_store.update_embeddings(create_retriever(document_store, self.openai_key), batch_size=256)
                 document_store.save(self.index_path)
