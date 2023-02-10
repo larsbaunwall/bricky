@@ -15,7 +15,6 @@ logging.basicConfig(
 logging.getLogger("haystack").setLevel(logging.DEBUG)
 
 openai_key: str
-answer_pipe: GenerativeOpenAIPipeline
 
 disable_telemetry()
 load_dotenv()

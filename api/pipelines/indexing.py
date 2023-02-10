@@ -37,7 +37,7 @@ class MarkdownIndexingPipeline(BaseStandardPipeline):
                 split_length=150,
                 split_respect_sentence_boundary=True,
             )
-            document_store = load_store(self.index_name)
+            document_store = load_store(index_name=self.index_name, embedding_dim=384)
 
             self.pipeline.add_node(
                 component=markdown_converter, name="MarkdownConverter", inputs=["File"]
@@ -63,7 +63,6 @@ def create_retriever(document_store: BaseDocumentStore, openai_key: str) -> Base
     return EmbeddingRetriever(
         document_store=document_store,
         batch_size=8,
-        embedding_model="text-embedding-ada-002",
-        api_key=openai_key,
-        max_seq_len=1024
+        embedding_model="sentence-transformers/all-MiniLM-L6-v2",
+        model_format="sentence_transformers"
     )
