@@ -54,9 +54,13 @@ class MarkdownIndexingPipeline(BaseStandardPipeline):
                 if file.endswith('.md'):
                     files_to_index.append(file)
 
-            self.pipeline.run(file_paths=files_to_index)
-            document_store.update_embeddings(create_retriever(document_store, self.openai_key), batch_size=256)
-            document_store.save(self.index_path)
+            if len(files_to_index) is not 0:
+                self.pipeline.run(file_paths=files_to_index)
+                document_store.update_embeddings(create_retriever(document_store, self.openai_key), batch_size=256)
+                document_store.save(self.index_path)
+            else:
+                print("No files found to index at path " + self.doc_dir)
+                print("Source context will be empty")
 
 
 def create_retriever(document_store: BaseDocumentStore, openai_key: str) -> BaseRetriever:
