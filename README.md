@@ -26,8 +26,8 @@ OPENAI_KEY=<YOUR OPENAI KEY GOES HERE>
 ### Steps
 
 1. Clone this repo!
-2. Copy over your documentation to `api/sources`
-4. Run docker-compose: `docker-compose up`
+1. Copy over your documentation to `api/sources`
+1. Run docker-compose: `docker-compose up`
 
 You should now have two endpoints running:
 
