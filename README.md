@@ -17,26 +17,24 @@ The project is inspired by the awesome [HoustonAI by Astro](https://github.com/w
 
 ### Prereqs
 
-Provide these `env` variables for the api container:
+Provide these `env` variables for the api container by creating a `dotenv` file in `api/.env`
 
 ```
 OPENAI_KEY=<YOUR OPENAI KEY GOES HERE>
-DOC_DIR=<YOUR ROOT DOC DIRECTORY GOES HERE>
-INDEX_NAME=<NAME OF YOUR INDEX FOR THE DOC STORE>
 ```
-
-Easiest way is to create a `dotenv` file in `/api/.env`
 
 ### Steps
 
 1. Clone this repo!
-2. Make sure the document directory is configured correctly
-3. Run docker-compose: `docker-compose up`
+2. Copy over your documentation to `api/sources`
+4. Run docker-compose: `docker-compose up`
 
 You should now have two endpoints running:
 
 - The [Nextjs-based frontend](./app): Open [http://localhost:3000](http://localhost:3000) to meet Bricky.
 - The [Haystack-based API](./api): Open [http://localhost:8080/docs](http://localhost:8080/docs) with your browser to see the OpenAPI documentation.
+
+Note: if you make changes to the any files, i.e. `api/.env` or the docs in `sources/docs`, you need to rebuild the images: `docker-compose rebuild --no-cache`.
 
 ## Learn more
 
